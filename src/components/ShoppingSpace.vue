@@ -13,7 +13,7 @@
           :alt="product.name"
         />
         <div class="inline product-title">{{ product.name }}</div>
-        <div class="inline product-amount">x {{ product.amount }}</div>
+        <div class="inline product-amount">x {{ Number(product.amount) }}</div>
       </div>
     </div>
   </div>

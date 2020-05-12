@@ -26,6 +26,8 @@ export default {
       const productList = await dispatch("addProductOnList", product);
       const newMoney = await dispatch("spendMoney", productList);
       if (newMoney) {
+        console.log();
+
         await commit("SET_PRODUCT_LIST", productList);
         await commit("SET_MONEY", newMoney);
 
@@ -58,7 +60,7 @@ export default {
         productList[productIndex] = { ...product };
       }
 
-      return productList;
+      return productList.filter(product => product.amount);
     }
   }
 };
