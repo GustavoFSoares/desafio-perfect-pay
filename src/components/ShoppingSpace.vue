@@ -2,7 +2,11 @@
   <div class="shopping-space">
     <div class="title">Your Shopping Space</div>
     <div class="shopping-list">
-      <div class="product-item" v-for="l in list" :key="l">
+      <div
+        class="product-item"
+        v-for="(product, index) in $store.getters[`MoneyStore/getProductList`]"
+        :key="index"
+      >
         <img
           class="inline product-image"
           :src="product.picture"
@@ -15,21 +19,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      product: {
-        name: "Big Mac",
-        picture: require("@/assets/bigmac.jpg"),
-        price: 2,
-        amount: 0
-      },
-      list: [0, 1, 2, 3]
-    };
-  }
-};
-</script>
 <style lang="scss">
 .shopping-space {
   max-width: 100%;

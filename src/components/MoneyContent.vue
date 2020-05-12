@@ -1,5 +1,7 @@
 <template>
-  <div class="money-container">{{ money | MoneyFilter }} left</div>
+  <div class="money-container">
+    {{ $store.getters["MoneyStore/getMoney"] | MoneyFilter }} left
+  </div>
 </template>
 
 <script>

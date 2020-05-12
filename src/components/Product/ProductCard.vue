@@ -16,6 +16,7 @@
       <b-button
         @click="amount++"
         class="buy"
+        v-bind:class="{ disable: cantBuy }"
         variant="secondary"
         :disabled="false"
       >
@@ -28,11 +29,28 @@
 <script>
 export default {
   watch: {
-    amount(val) {
+    async amount(val) {
       if (Number(val) == 0) {
         this.amount = 0;
       }
-      return val;
+
+      let buyApproved = await this.$store.dispatch("MoneyStore/buyProduct", {
+        ...this.$props.product,
+        amount: val
+      });
+      if (buyApproved) {
+        this.$props.product.amount = val;
+        return val;
+      } else {
+        this.amount = this.$props.product.amount;
+      }
+    }
+  },
+  computed: {
+    cantBuy() {
+      return (
+        this.$store.getters["MoneyStore/getMoney"] < this.$props.product.price
+      );
     }
   },
   data() {

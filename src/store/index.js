@@ -1,11 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import MoneyStore from "./Money";
+
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+const Store = new Vuex.Store({
+  modules: {
+    MoneyStore
+  }
 });
+
+Vue.prototype.$store = Store;
+
+export default Store;
