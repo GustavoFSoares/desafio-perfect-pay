@@ -1,0 +1,12 @@
+@import './app.variables.scss';
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+#app {
+  background: #F1F2F6;
+}
+
+button {
+  font-weight: bold;
+}
