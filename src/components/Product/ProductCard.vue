@@ -4,7 +4,7 @@
     <div class="item product-name">{{ product.name }}</div>
     <div class="item product-price">{{ product.price | MoneyFilter }}</div>
     <div class="item product-amount">
-      <b-button 
+      <b-button
         @click="amount--"
         class="sell"
         v-bind:class="{ disable: !amount }"
